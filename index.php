@@ -1,39 +1,13 @@
-<?php
-    require_once 'vendor/autoload.php';
-    use App\Certificados;
-    $certificados = new Certificados();     
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $certificados->uploadCSV(); 
-    }
-?>
-
-
 <?php require_once 'views/includes/header.php'; ?>
 
-    <h2>Importar Certificados</h2>
-
-    <form method="POST" enctype="multipart/form-data" action="index.php" class="mb-3">
-        <div class="form-group mt-3 mb-3">
-            <input type="file" class="form-control-file" id="arquivo" name="arquivo"  />
-        </div>
-        <button type="submit" class="btn btn-success">Importar CSV</button>
-    </form>
-
-    <?php       
-        $retorno = end(explode("?", $_SERVER["REQUEST_URI"]));
-        switch($retorno) {
-            case 'true':
-                require_once 'views/msgSucesso.php';
-                break;
-            case 'false':
-                require_once 'views/msgErro.php';
-                break;
-            case 'repetidos':
-                require_once 'views/msgRepetido.php';
-                break;
-            default:
-                echo '';
-        }
-    ?>
+<a href="voucher.php" class="btn btn-primary btn-lg btn-block">Importar Vouchers</a>
+<a href="certificados.php" class="btn btn-secondary btn-lg btn-block">Importar Certificados</a>
+<a href="resumo-agr.php" class="btn btn-success btn-lg btn-block">Resumo AGR</a>
+<a href="resumo-unidade.php" class="btn btn-danger btn-lg btn-block">Resumo Unidade</a>
+<a href="resumo-diario-agr.php" class="btn btn-warning btn-lg btn-block">Resumo Diário AGR</a>
+<a href="resumo-datas.php" class="btn btn-info btn-lg btn-block">Resumo Datas</a>
+<a href="resumo-voucher.php" class="btn btn-dark btn-lg btn-block">Resumo Voucher</a>
+<a href="agr.php" class="btn btn-light btn-outline-dark btn-lg btn-block">AGR</a>
+<a href="unidade.php" class="btn btn-success btn-lg btn-block">Unidade</a>
 
 <?php require_once 'views/includes/footer.php'; ?>

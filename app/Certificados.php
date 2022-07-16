@@ -57,7 +57,7 @@ class Certificados
 
                 $consultar = $this->banco->consultar("*", self::TABELA, "WHERE id = $id AND status = '$status' AND dataAprovacao = '$dataAprovacao'", null, null, null);
                 if(mysqli_num_rows($consultar)) {
-                    header('location: index.php?repetidos');
+                    header('location: certificados.php?repetidos');
                     exit();
                 }
                 
@@ -67,11 +67,11 @@ class Certificados
 
             
             fclose($csvLido);
-            header('location: index.php?true');
+            header('location: certificados.php?true');
             exit();
         }
 
-        header('location: index.php?false');
+        header('location: certificados.php?false');
     }
 
     
